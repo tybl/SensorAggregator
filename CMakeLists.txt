@@ -3,23 +3,12 @@
 ################################################################################
 cmake_minimum_required(VERSION 3.14) # FetchContent_MakeAvailable
 
-project(template
-  VERSION 0.0.0
-  DESCRIPTION "Template C++ Project using CMake"
+project(SensorAggregator
+  VERSION 0.0.1
+  DESCRIPTION "Tools to collect environment data"
   LANGUAGES CXX)
 
-option(BUILD_PROJECT_TESTS "Build and run tests as a subproject" OFF)
-
-set(IS_ROOT_PROJECT CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
-if(IS_ROOT_PROJECT)
-  include(CTest)
-endif()
 include(FetchContent)
 include(util/cmake/CompilerSettings.cmake)
 include(util/cmake/Linters.cmake)
 
-add_subdirectory(src)
-
-if(IS_ROOT_PROJECT OR BUILD_PROJECT_TESTS)
-  add_subdirectory(test)
-endif()
