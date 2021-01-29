@@ -12,3 +12,7 @@ include(FetchContent)
 include(util/cmake/CompilerSettings.cmake)
 include(util/cmake/Linters.cmake)
 
+find_package(Boost REQUIRED system)
+find_package(Threads)
+
+add_subdirectory(app)
